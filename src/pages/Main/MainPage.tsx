@@ -3,13 +3,15 @@
 import * as React from 'react';
 import { MainLayout } from '@/layouts/MainLayout';
 import { Table } from '@/components/Table';
+import { TablePagination } from '@/components/TablePagination';
 
-import styles from './Main.module.css';
+import styles from './MainPage.module.css';
 
 const MainPage: React.FC = () => {
 	return (
-		<MainLayout>
+		<MainLayout className={styles.main}>
 			<Table />
+			<TablePagination />
 		</MainLayout>
 	);
 };

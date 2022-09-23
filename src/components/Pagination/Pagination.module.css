@@ -1,0 +1,36 @@
+.pagination {
+	display: flex;
+	align-items: center;
+	column-gap: 20px;
+
+	padding: 20px;
+}
+
+.element {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 10px 15px;
+
+	background-color: var(--key-invert-color);
+
+	cursor: pointer;
+
+	transition: background-color 200ms ease-in-out, color 200ms ease-in-out,
+		box-shadow 250ms ease-in-out;
+}
+
+.element:hover {
+	background-color: var(--primary-color-100);
+
+	color: var(--key-invert-color);
+}
+
+.elementActive {
+	background-color: var(--primary-color-100);
+
+	color: var(--key-invert-color);
+
+	box-shadow: 0 0 15px var(--primary-color-70);
+}

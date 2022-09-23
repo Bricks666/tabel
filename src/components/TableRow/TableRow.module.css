@@ -1,5 +1,5 @@
 .tableRow:nth-child(odd) {
-	background-color: var(--third-color);
+	background-color: var(--primary-color-100);
 
 	color: var(--key-invert-color);
 }
