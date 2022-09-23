@@ -19,5 +19,5 @@ export const routes: Route[] = [
 	{
 		path: ROUTES.notFound,
 		Component: NotFoundPage,
-	},
+	}
 ];

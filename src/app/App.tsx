@@ -1,13 +1,14 @@
-import React from 'react';
+import * as React from 'react';
+import { AppRoutes } from '@/components/AppRoutes';
 
-import styles from './App.module.css';
-
-const  App = () => {
-  return (
-    <div>
-
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<div>
+			<React.Suspense>
+				<AppRoutes />
+			</React.Suspense>
+		</div>
+	);
+};
 
 export default App;

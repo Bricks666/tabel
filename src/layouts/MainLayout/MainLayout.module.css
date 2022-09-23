@@ -1,5 +1,43 @@
 .layout {
-	width: 1440px;
+	--layout-size: 1400px;
+
+	width: var(--layout-size);
 
 	margin: 0 auto;
+}
+
+/*
+  Small desktop
+*/
+@media (max-width: 1440px) {
+	.layout {
+		--layout-size: 1000px;
+	}
+}
+
+/*
+  Horizontal tablet
+*/
+@media (max-width: 1024px) {
+	.layout {
+		--layout-size: 760px;
+	}
+}
+
+/*
+  Vertical tablet
+*/
+@media (max-width: 830px) {
+	.layout {
+		--layout-size: 560px;
+	}
+}
+
+/*
+  PHONE
+*/
+@media (max-width: 576px) {
+	.layout {
+		--layout-size: 300px;
+	}
 }

@@ -1,0 +1,17 @@
+.tableRow:nth-child(odd) {
+	background-color: var(--third-color);
+
+	color: var(--key-invert-color);
+}
+
+.cell {
+	padding: 15px 20px;
+
+	border: 2px solid var(--key-color);
+}
+
+@media (max-width: 576px) {
+	.cell {
+		padding: 10px;
+	}
+}
