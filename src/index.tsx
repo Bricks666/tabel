@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { QueryProvider } from '@/packages/Query';
 import App from './app';
 
 import './styles/index.css';
@@ -10,8 +11,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 	<React.StrictMode>
-		<BrowserRouter basename={process.env.PUBLIC_URL}>
-			<App />
-		</BrowserRouter>
+		<QueryProvider>
+			<BrowserRouter basename={process.env.PUBLIC_URL}>
+				<App />
+			</BrowserRouter>
+		</QueryProvider>
 	</React.StrictMode>
 );
