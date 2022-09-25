@@ -9,7 +9,7 @@ export type QueriesCache = Partial<Record<string, QueryCache>>;
 
 export type Fetcher<T> = () => Promise<T>;
 
-export type KeyType = string | number | boolean;
+export type KeyType = string | number | boolean | null | undefined;
 
 export type CacheModifier = (
 	key: string,

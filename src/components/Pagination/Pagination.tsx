@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -30,7 +31,11 @@ export const Pagination: React.FC<PaginationProps> = React.memo(
 		const isMoreRange = count > range;
 		const pagesCount = isMoreRange ? range : count;
 		const halfRange = range / 2;
-		const startPage = halfRange < page && isMoreRange ? page - halfRange : 0;
+		const startPage =	count - page < halfRange
+			? count - range
+			: halfRange < page
+				? page - halfRange
+				: 0;
 
 		const pages = new Array(pagesCount).fill(0);
 

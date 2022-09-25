@@ -4,6 +4,7 @@ import { Row } from '@/models/Row';
 export const data: Row[] = Array(150)
 	.fill(0)
 	.map(() => ({
+		id: faker.datatype.number(),
 		count: faker.datatype.number(),
 		date: faker.date.past().toLocaleDateString(),
 		distance: faker.datatype.number(),
