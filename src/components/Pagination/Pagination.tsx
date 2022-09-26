@@ -1,11 +1,9 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import * as React from 'react';
 import cn from 'classnames';
 import { CommonProps } from '@/interfaces/common';
 import { OnPaginationChange } from './types';
+import { Button } from '../Button';
 
 import styles from './Pagination.module.css';
 
@@ -31,12 +29,15 @@ export const Pagination: React.FC<PaginationProps> = React.memo(
 		const isMoreRange = count > range;
 		const pagesCount = isMoreRange ? range : count;
 		const halfRange = range / 2;
-		const startPage =	count - page < halfRange
-			? count - range
-			: halfRange < page
-				? page - halfRange
-				: 0;
+		let startPage = 0;
 
+		if (isMoreRange) {
+			if (count - page < halfRange) {
+				startPage = count - range;
+			} else if (halfRange < page) {
+				startPage = page - halfRange;
+			}
+		}
 		const pages = new Array(pagesCount).fill(0);
 
 		return (
@@ -44,16 +45,16 @@ export const Pagination: React.FC<PaginationProps> = React.memo(
 				{pages.map((_, i) => {
 					const num = startPage + i + 1;
 					return (
-						<li
-							className={cn(styles.element, {
-								[styles.elementActive]: page === num,
-							})}
-							onClick={() => onChange(num)}
-							tabIndex={0}
-							role={itemRole}
-							key={num}
-						>
-							{num}
+						<li key={num}>
+							<Button
+								className={cn({
+									[styles.elementActive]: page === num,
+								})}
+								onClick={() => onChange(num)}
+								role={itemRole}
+							>
+								{num}
+							</Button>
 						</li>
 					);
 				})}

@@ -10,5 +10,3 @@ export const data: Row[] = Array(150)
 		distance: faker.datatype.number(),
 		name: faker.company.name(),
 	}));
-
-export const titles: (keyof Row)[] = ['name', 'count', 'distance', 'date'];

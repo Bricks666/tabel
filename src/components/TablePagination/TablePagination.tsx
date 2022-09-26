@@ -9,17 +9,18 @@ export type TablePaginationProps = CommonProps;
 
 export const TablePagination: React.FC<TablePaginationProps> = React.memo(
 	function TablePagination(props) {
-		const { className } = props;
-		const { id = 1 } = useParams();
+		const { className, } = props;
+		const { id = 1, } = useParams();
 		const navigate = useNavigate();
 		const location = useLocation();
-		const { data } = useData();
+		const { data, } = useData();
 
-		const { onPageCount, totalCount } = data || {
+		const { onPageCount, totalCount, } = data || {
 			data: [],
 			onPageCount: 50,
 			totalCount: 0,
 		};
+
 		const count = Math.ceil(totalCount / onPageCount);
 		const onChange = React.useCallback<OnPaginationChange>(
 			(page) => {

@@ -1,0 +1,23 @@
+.field {
+	display: grid;
+	row-gap: 4px;
+}
+
+.label {
+	font-size: 12px;
+}
+
+.input {
+	width: 100%;
+
+	padding: 20px;
+
+	background-color: var(--key-invert-color);
+
+	transition: box-shadow 250ms ease-in-out;
+}
+
+.input:focus,
+.input:hover {
+	box-shadow: 0 0 15px var(--primary-color-70);
+}

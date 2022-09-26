@@ -1,0 +1,18 @@
+.select {
+	display: grid;
+}
+
+.label {
+	font-size: 12px;
+}
+
+.control {
+	padding: 20px;
+
+	transition: box-shadow 250ms ease-in-out;
+}
+
+.control:hover,
+.control:focus-visible {
+	box-shadow: 0 0 15px var(--primary-color-70);
+}

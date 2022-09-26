@@ -30,3 +30,11 @@ span {
 
 	list-style: none;
 }
+
+button,
+select,
+input {
+	outline: none;
+	border: none;
+	border-radius: none;
+}

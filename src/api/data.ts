@@ -19,7 +19,6 @@ export const getDataApi = async (
 ): Promise<GetDataApiResponse> => {
 	const query = new URLSearchParams({});
 	Object.entries(params).forEach(([key, value]) => {
-		console.log(key, value);
 		if (typeof value !== 'undefined' && value !== null) {
 			query.set(key, value);
 		}

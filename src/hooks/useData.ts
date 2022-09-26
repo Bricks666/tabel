@@ -5,13 +5,13 @@ import { useQuery, UseQueryResult } from '@/packages/Query';
 import useGetParams from './useGetParams';
 
 const useData = (): UseQueryResult<GetDataApiResponse> => {
-	const { id = 1 } = useParams();
+	const { id = 1, } = useParams();
 	const filterType = useGetParams(GET_PARAMS.filterType);
 	const filterBy = useGetParams(GET_PARAMS.filterBy);
 	const filterValue = useGetParams(GET_PARAMS.filterValue);
 
 	return useQuery(['data', +id, filterType, filterValue, filterBy], () =>
-		getDataApi({ page: +id, filterType, filterBy, filterValue }));
+		getDataApi({ page: +id, filterType, filterBy, filterValue, }));
 };
 
 export default useData;

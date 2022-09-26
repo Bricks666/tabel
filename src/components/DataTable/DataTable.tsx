@@ -11,8 +11,8 @@ export type DataTableProps = CommonProps;
 
 export const DataTable: React.FC<DataTableProps> = React.memo(
 	function DataTable(props) {
-		const { className } = props;
-		const { data } = useData();
+		const { className, } = props;
+		const { data, } = useData();
 		const rows = React.useMemo(() => {
 			if (!data) {
 				return [];
