@@ -46,11 +46,30 @@ export const CreateDataForm: React.FC<CreateDataFormProps> = React.memo(
 				onSubmit={onSubmit}
 			>
 				<legend className={styles.legend}>Создание записи</legend>
-				<Field {...name} label='Имя' />
-				<Field {...count} label='Количество' type='number' />
-				<Field {...distance} label='Расстояние' type='number' />
-				<Field {...date} label='Дата' type='datetime-local' />
-				<Button type='submit' disabled={disableButton}>
+				<Field className={styles.name} {...name} label='Имя' />
+				<Field
+					className={styles.count}
+					{...count}
+					label='Количество'
+					type='number'
+				/>
+				<Field
+					className={styles.distance}
+					{...distance}
+					label='Расстояние'
+					type='number'
+				/>
+				<Field
+					className={styles.date}
+					{...date}
+					label='Дата'
+					type='datetime-local'
+				/>
+				<Button
+					className={styles.button}
+					type='submit'
+					disabled={disableButton}
+				>
 					Создать
 				</Button>
 			</form>

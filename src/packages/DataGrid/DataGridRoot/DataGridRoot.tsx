@@ -3,7 +3,6 @@ import cn from 'classnames';
 import { CommonProps } from '@/interfaces/common';
 import { DataGridHead } from '../DataGridHead';
 import { DataGridBody } from '../DataGridBody';
-import { DataGridToolbar } from '../DataGridToolbar';
 import { DataGridFooter } from '../DataGridFooter';
 
 import styles from './DataGridRoot.module.css';
@@ -15,12 +14,9 @@ export const DataGridRoot: React.FC<DataGridRootProps> = React.memo(
 		const { className, } = props;
 		return (
 			<div className={cn(styles.dataGridRoot, className)}>
-				<DataGridToolbar />
-				<div className={styles.inner}>
-					<DataGridHead />
-					<DataGridBody />
-					<DataGridFooter />
-				</div>
+				<DataGridHead />
+				<DataGridBody />
+				<DataGridFooter />
 			</div>
 		);
 	}

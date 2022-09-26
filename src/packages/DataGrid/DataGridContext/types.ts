@@ -7,8 +7,5 @@ export interface DataGridContextValue {
 	readonly count: number;
 	readonly onPageCount: number;
 	readonly onPageChange: OnPageChange;
-  readonly onDelete?: OnDelete
-	readonly onFilterSubmit?: (
-		filters: Record<string, string | number | undefined>
-	) => unknown;
+	readonly onDelete?: OnDelete;
 }

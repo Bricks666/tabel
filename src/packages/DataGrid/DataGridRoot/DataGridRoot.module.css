@@ -2,15 +2,11 @@
 	display: grid;
 	row-gap: 10px;
 
-	padding: 25px;
-
-	background-color: var(--key-invert-color);
-}
-
-.inner {
-	display: grid;
-
-	border: 1px solid var(--third-color-100);
+	border: 1px solid var(--third-color-50);
 
 	border-radius: 6px;
+
+	background-color: var(--key-invert-color);
+
+	overflow-x: scroll;
 }

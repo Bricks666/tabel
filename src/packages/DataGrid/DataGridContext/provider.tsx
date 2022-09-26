@@ -1,8 +1,12 @@
 import * as React from 'react';
+import { Width } from '../types';
 import { DataGridContext } from './context';
 import { DataGridContextValue } from './types';
 
-export interface DataGridContextProps extends DataGridContextValue {}
+export interface DataGridContextProps
+	extends Omit<DataGridContextValue, 'minColumnWidth'> {
+	readonly minColumnWidth?: Width;
+}
 
 export const DataGridContextProvider: React.FC<
 	React.PropsWithChildren<DataGridContextProps>
@@ -11,19 +15,19 @@ export const DataGridContextProvider: React.FC<
 		children,
 		columns,
 		count,
-		onFilterSubmit,
 		onPageCount,
 		onPageChange,
 		page,
 		rows,
 		onDelete,
+		minColumnWidth = '100px',
 	} = props;
 
 	const value = React.useMemo<DataGridContextValue>(
 		() => ({
 			columns,
 			count,
-			onFilterSubmit,
+			minColumnWidth,
 			onPageCount,
 			onPageChange,
 			page,
@@ -33,7 +37,7 @@ export const DataGridContextProvider: React.FC<
 		[
 			columns,
 			count,
-			onFilterSubmit,
+			minColumnWidth,
 			onPageCount,
 			onPageChange,
 			page,

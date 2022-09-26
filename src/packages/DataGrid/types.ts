@@ -1,8 +1,14 @@
+export type Width =
+	| `${number}px`
+	| 'max-content'
+	| `${number}%`
+	| `${number}fr`;
+
 export interface Column {
 	readonly id: number;
 	readonly key: string;
 	readonly label: string;
-	readonly width: number | 'max-content' | `${string}%`;
+	readonly width: Width;
 }
 
 export type Row = {

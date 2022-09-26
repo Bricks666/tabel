@@ -9,9 +9,9 @@ import { filterTypes, searchableColumns } from '@/consts/dataTable';
 import { Select } from '../Select';
 import { GET_PARAMS } from '@/consts/api';
 import prepareLink from '@/utils/prepareLink';
+import { PATHS } from '@/consts/routes';
 
 import styles from './FilterForm.module.css';
-import { PATHS } from '@/consts/routes';
 
 export type FilterFormProps = CommonProps;
 
@@ -59,8 +59,8 @@ export const FilterForm: React.FC<FilterFormProps> = React.memo(
 				onReset={onReset}
 			>
 				<legend className={styles.legend}>Фильтрация</legend>
-				<Field {...value} label='Значение' />
-				<Select {...type} label='Способ'>
+				<Field className={styles.value} {...value} label='Значение' />
+				<Select className={styles.type} {...type} label='Способ'>
 					<option value={-1}>Не выбран</option>
 					{filterTypes.map((filterType) => (
 						<option value={filterType} key={filterType}>
@@ -68,7 +68,7 @@ export const FilterForm: React.FC<FilterFormProps> = React.memo(
 						</option>
 					))}
 				</Select>
-				<Select {...column} label='Поле'>
+				<Select className={styles.column} {...column} label='Поле'>
 					<option value={-1}>Не выбран</option>
 					{searchableColumns.map((filterType) => (
 						<option value={filterType} key={filterType}>
@@ -76,10 +76,16 @@ export const FilterForm: React.FC<FilterFormProps> = React.memo(
 						</option>
 					))}
 				</Select>
-				<Button type='submit' disabled={disableButton}>
+				<Button
+					className={styles.submit}
+					type='submit'
+					disabled={disableButton}
+				>
 					Фильтровать
 				</Button>
-				<Button type='reset'>Сбросить фильтры</Button>
+				<Button className={styles.reset} type='reset'>
+					Сбросить фильтры
+				</Button>
 			</form>
 		);
 	}

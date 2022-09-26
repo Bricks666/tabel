@@ -26,12 +26,7 @@ export const DataGridBody: React.FC<DataGridBodyProps> = React.memo(
 		return (
 			<main className={cn(styles.tableBody, className)}>
 				{preparedRows.map((row) => (
-					<DataGridRow
-						{...row}
-						columns={columns}
-						onDelete={onDelete}
-						key={row.rowId}
-					/>
+					<DataGridRow {...row} onDelete={onDelete} key={row.rowId} />
 				))}
 			</main>
 		);
