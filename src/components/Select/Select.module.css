@@ -1,0 +1,28 @@
+.select {
+	display: grid;
+}
+
+.label {
+	font-size: 12px;
+}
+
+.control {
+	width: 100%;
+
+	padding: 20px;
+
+	background-color: var(--key-invert-color);
+
+	border: 1px solid var(--third-color-80);
+
+	transition: box-shadow 250ms ease-in-out, border 250ms ease-in-out;
+
+	border-radius: 6px;
+}
+
+.control:hover,
+.control:focus-visible {
+	border: 1px solid var(--primary-color-100);
+
+	box-shadow: 0 0 15px var(--primary-color-70);
+}

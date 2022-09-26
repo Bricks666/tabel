@@ -1,0 +1,43 @@
+.createDataForm {
+	display: grid;
+	grid-template-columns: 1fr repeat(4, max-content);
+	column-gap: 10px;
+	row-gap: 5px;
+	align-items: end;
+
+	padding: 5px;
+}
+
+.legend {
+	grid-column: span 5;
+}
+
+@media (max-width: 1024px) {
+	.createDataForm {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.legend,
+	.name {
+		grid-column: span 2;
+	}
+
+	.button {
+		justify-self: end;
+	}
+}
+
+@media (max-width: 576px) {
+	.createDataForm {
+		grid-template-columns: 1fr;
+	}
+
+	.legend,
+	.name {
+		grid-column: span 1;
+	}
+
+	.button {
+		justify-self: end;
+	}
+}

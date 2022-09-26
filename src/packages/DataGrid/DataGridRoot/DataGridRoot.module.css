@@ -1,0 +1,12 @@
+.dataGridRoot {
+	display: grid;
+	row-gap: 10px;
+
+	border: 1px solid var(--third-color-50);
+
+	border-radius: 6px;
+
+	background-color: var(--key-invert-color);
+
+	overflow-x: scroll;
+}

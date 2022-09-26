@@ -1,0 +1,45 @@
+.filterForm {
+	display: grid;
+	grid-template-columns: 1fr repeat(4, max-content);
+	align-items: center;
+	column-gap: 10px;
+	row-gap: 5px;
+
+	padding: 10px;
+}
+
+.legend {
+	grid-column: span 5;
+}
+
+.reset,
+.submit {
+	align-self: end;
+}
+
+@media (max-width: 1024px) {
+	.filterForm {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(4, max-content);
+	}
+
+	.legend {
+		grid-column: span 2;
+	}
+
+	.value {
+		grid-column: span 2;
+	}
+}
+
+.type {
+}
+
+.column {
+}
+
+.submit {
+}
+
+.reset {
+}

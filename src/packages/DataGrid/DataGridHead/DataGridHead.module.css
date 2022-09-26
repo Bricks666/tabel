@@ -1,0 +1,9 @@
+.head {
+	display: grid;
+
+	background-color: var(--key-invert-color);
+}
+
+.row {
+	font-weight: 700;
+}

@@ -1,0 +1,40 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+body,
+html,
+table,
+tr,
+td,
+th,
+thead,
+tbody,
+tfoot,
+ul,
+ol,
+dl,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+button,
+select,
+input {
+	outline: none;
+	border: none;
+	border-radius: none;
+}

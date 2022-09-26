@@ -1,7 +1,8 @@
 import * as React from 'react';
+import cn from 'classnames';
 import { CommonProps } from '@/interfaces/common';
 
-import styles from './TemplateName.module.css'
+import styles from './TemplateName.module.css';
 
 export interface TemplateNameProps extends CommonProps {}
 

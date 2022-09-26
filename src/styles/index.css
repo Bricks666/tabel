@@ -1,0 +1,29 @@
+@import url('./normalize.css');
+@import url('./variables.css');
+
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: var(--key-color);
+	line-height: 1.2em;
+	letter-spacing: 0.05em;
+}
+
+.scroll-lock {
+	overflow: hidden;
+}
+
+.visibility-hidden {
+	position: absolute;
+	z-index: var(--low-z-index);
+
+	display: inline-block;
+
+	width: 1px;
+	height: 1px;
+
+	margin: -1px;
+
+	clip: rect(0, 0, 0, 0);
+
+	overflow: hidden;
+}
