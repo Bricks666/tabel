@@ -1,4 +1,6 @@
-export const API_URL = process.env.API_URL || 'http://localhost:3001';
+export const API_HOST = process.env.REACT_APP_API_HOST || 'http://localhost';
+export const API_PORT = process.env.REACT_APP_API_PORT || '3001';
+export const API_URL =	process.env.REACT_APP_API_URL || `${API_HOST}:${API_PORT}`;
 
 export interface GetParams {
 	readonly filterType: string;

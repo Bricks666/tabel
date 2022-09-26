@@ -13,11 +13,8 @@ export interface PrepareLinkParams {
 const prepareLink = (location: Location, params: PrepareLinkParams): string => {
 	const { path, query = {}, keepOldQuery = false, deleteQuery, } = params;
 
-	const newQuery = prepareQuery(
-		query,
-		keepOldQuery ? location.search : '',
-		deleteQuery
-	);
+	let newQuery = prepareQuery(query, keepOldQuery ? location.search : '');
+	newQuery = prepareQuery(query, '', deleteQuery);
 	const to = path ?? location.pathname;
 
 	return `${to}?${newQuery}`;

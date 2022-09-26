@@ -38,6 +38,7 @@ export const DataTable: React.FC<DataTableProps> = React.memo(
 					[GET_PARAMS.popup]: POPUPS.updateRow,
 					[GET_PARAMS.rowId]: rowId,
 				},
+				keepOldQuery: true,
 			});
 			navigate(path);
 		});

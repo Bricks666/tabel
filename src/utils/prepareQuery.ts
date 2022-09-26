@@ -12,7 +12,7 @@ const prepareQuery = (
 		const deletedValue = deletedQuery[key];
 		if (!deletedValue && typeof value !== 'undefined' && value !== null) {
 			newQuery.set(key, value.toString());
-		} else if (deletedQuery) {
+		} else if (deletedValue) {
 			newQuery.delete(key);
 		}
 	});

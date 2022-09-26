@@ -11,6 +11,7 @@ const useClosePopup = (popupQueryName: string): VoidFunction => {
 			[GET_PARAMS.popup]: popupQueryName,
 			[GET_PARAMS.rowId]: true,
 		},
+		keepOldQuery: true,
 	});
 
 	return useEvent(() => {

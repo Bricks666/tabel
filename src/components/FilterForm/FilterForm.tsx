@@ -5,7 +5,7 @@ import { CommonProps } from '@/interfaces/common';
 import { Field } from '../Field';
 import useField from '@/hooks/useField';
 import { Button } from '../Button';
-import { filterTypes, searchableColumns } from '@/consts/dataTable';
+import { filterTypeNamesMap, filterTypes, searchableColumns } from '@/consts/dataTable';
 import { Select } from '../Select';
 import { GET_PARAMS } from '@/consts/api';
 import prepareLink from '@/utils/prepareLink';
@@ -64,15 +64,15 @@ export const FilterForm: React.FC<FilterFormProps> = React.memo(
 					<option value={-1}>Не выбран</option>
 					{filterTypes.map((filterType) => (
 						<option value={filterType} key={filterType}>
-							{filterType}
+							{filterTypeNamesMap[filterType]}
 						</option>
 					))}
 				</Select>
 				<Select className={styles.column} {...column} label='Поле'>
 					<option value={-1}>Не выбран</option>
-					{searchableColumns.map((filterType) => (
-						<option value={filterType} key={filterType}>
-							{filterType}
+					{searchableColumns.map((columnName) => (
+						<option value={columnName} key={columnName}>
+							{[columnName]}
 						</option>
 					))}
 				</Select>
