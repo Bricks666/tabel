@@ -1,9 +1,9 @@
 import { Pagination } from '@/interfaces/api';
-import { Row } from '@/models/Row';
+import { DataModel } from '@/models/Row';
 import { instance } from './core';
 
 export interface GetDataApiResponse {
-	readonly data: Row[];
+	readonly data: DataModel[];
 	readonly totalCount: number;
 	readonly onPageCount: number;
 }

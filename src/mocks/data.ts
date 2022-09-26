@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
-import { Row } from '@/models/Row';
+import { DataModel } from '@/models/Row';
 
-export const data: Row[] = Array(150)
+export const data: DataModel[] = Array(150)
 	.fill(0)
 	.map(() => ({
 		id: faker.datatype.number(),

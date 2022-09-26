@@ -1,9 +1,10 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { CommonProps } from '@/interfaces/common';
-import { Table } from '../Table';
-import { columns } from '@/consts/dataTable';
-import useData from '@/hooks/useData';
+import { DataGrid } from '@/packages/DataGrid';
+import { columns } from './data';
+import useDataPagination from './hooks/useDataPagination';
+import useData from './hooks/useData';
 
 import styles from './DataTable.module.css';
 
@@ -11,20 +12,25 @@ export type DataTableProps = CommonProps;
 
 export const DataTable: React.FC<DataTableProps> = React.memo(
 	function DataTable(props) {
-		const { className, } = props;
-		const { data, } = useData();
-		const rows = React.useMemo(() => {
-			if (!data) {
-				return [];
-			}
-			return data.data.map((row) => columns.map((column) => row[column]));
-		}, [data]);
+		const { className } = props;
+		const {
+			data = {
+				data: [],
+				onPageCount: 50,
+				totalCount: 0,
+			},
+		} = useData();
+		const pagination = useDataPagination();
+		const { data: rows, onPageCount, totalCount } = data;
 
 		return (
-			<Table
+			<DataGrid
 				className={cn(styles.dataTable, className)}
-				titles={columns}
+				columns={columns}
 				rows={rows}
+				count={totalCount}
+				onPageCount={onPageCount}
+				{...pagination}
 			/>
 		);
 	}

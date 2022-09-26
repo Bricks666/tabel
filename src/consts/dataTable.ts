@@ -1,7 +1,7 @@
 import { FilterType } from '@/interfaces/tables';
-import { Row } from '@/models/Row';
+import { DataModel } from '@/models/Row';
 
-export const columns: (keyof Row)[] = [
+export const columns: (keyof DataModel)[] = [
 	'id',
 	'name',
 	'count',

@@ -1,4 +1,6 @@
-export interface Row {
+import { Row } from '@/packages/DataGrid';
+
+export interface DataModel extends Row {
 	readonly id: number;
 	readonly name: string;
 	readonly count: number;

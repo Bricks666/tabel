@@ -1,8 +1,8 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { CommonProps } from '@/interfaces/common';
-import { TableHead } from '../TableHead';
-import { TableBody } from '../TableBody';
+import { DataGridHead } from '../DataGridHead';
+import { DataGridBody } from '../DataGridBody';
 import { RowAllowedTypes } from '@/interfaces/tables';
 
 import styles from './Table.module.css';
@@ -17,8 +17,8 @@ export const Table: React.FC<TableProps> = React.memo(function Table(props) {
 
 	return (
 		<table className={cn(styles.table, className)}>
-			<TableHead titles={titles} />
-			<TableBody rows={rows} />
+			<DataGridHead titles={titles} />
+			<DataGridBody rows={rows} />
 		</table>
 	);
 });
