@@ -1,5 +1,5 @@
 declare const styles: {
-  readonly "dataGridRoot": string;
+  readonly "updateRowPopup": string;
 };
 export = styles;
 

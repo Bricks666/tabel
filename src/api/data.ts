@@ -23,6 +23,17 @@ export const getDataApi = async (
 	return result.data;
 };
 
+interface GetOneDataResponse {
+	readonly data: DataModel;
+}
+
+export const getOneDataApi = async (
+	id: number
+): Promise<GetOneDataResponse> => {
+	const result = await instance.get<GetOneDataResponse>(`/data/${id}`);
+	return result.data;
+};
+
 export const deleteDataApi = async (id: number): Promise<void> => {
 	await instance.delete(`/data/${id}`);
 };
@@ -38,4 +49,19 @@ export const createDataApi = async (
 	params: CreateDataParams
 ): Promise<void> => {
 	await instance.post('/data', params);
+};
+
+export interface UpdateDataApi {
+  readonly id: number
+	readonly name?: string;
+	readonly count?: number;
+	readonly distance?: number;
+	readonly date?: string;
+}
+
+export const updateDataApi = async (
+	params: UpdateDataApi
+): Promise<void> => {
+	const { id, ...body } = params;
+	await instance.put(`/data/${id}`, body);
 };

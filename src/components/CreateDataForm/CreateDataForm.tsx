@@ -38,7 +38,7 @@ export const CreateDataForm: React.FC<CreateDataFormProps> = React.memo(
 			resetDate();
 		};
 
-		const disableButton =			!nameIsDirty || !countIsDirty || !distanceIsDirty || !dateIsDirty;
+		const disableButton = !nameIsDirty || !countIsDirty || !distanceIsDirty || !dateIsDirty;
 
 		return (
 			<form
@@ -47,24 +47,9 @@ export const CreateDataForm: React.FC<CreateDataFormProps> = React.memo(
 			>
 				<legend className={styles.legend}>Создание записи</legend>
 				<Field className={styles.name} {...name} label='Имя' />
-				<Field
-					className={styles.count}
-					{...count}
-					label='Количество'
-					type='number'
-				/>
-				<Field
-					className={styles.distance}
-					{...distance}
-					label='Расстояние'
-					type='number'
-				/>
-				<Field
-					className={styles.date}
-					{...date}
-					label='Дата'
-					type='datetime-local'
-				/>
+				<Field {...count} label='Количество' type='number' />
+				<Field {...distance} label='Расстояние' type='number' />
+				<Field {...date} label='Дата' type='datetime-local' />
 				<Button
 					className={styles.button}
 					type='submit'

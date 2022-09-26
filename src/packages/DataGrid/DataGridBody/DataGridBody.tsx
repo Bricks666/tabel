@@ -11,7 +11,7 @@ export interface DataGridBodyProps extends CommonProps {}
 export const DataGridBody: React.FC<DataGridBodyProps> = React.memo(
 	function DataGridBody(props) {
 		const { className, } = props;
-		const { columns, rows, onDelete, } = React.useContext(DataGridContext);
+		const { columns, rows, onDelete, onUpdate, } =			React.useContext(DataGridContext);
 
 		const preparedRows = React.useMemo<Array<Row>>(() => {
 			return rows.map((row) => {
@@ -26,7 +26,12 @@ export const DataGridBody: React.FC<DataGridBodyProps> = React.memo(
 		return (
 			<main className={cn(styles.tableBody, className)}>
 				{preparedRows.map((row) => (
-					<DataGridRow {...row} onDelete={onDelete} key={row.rowId} />
+					<DataGridRow
+						{...row}
+						onDelete={onDelete}
+						onUpdate={onUpdate}
+						key={row.rowId}
+					/>
 				))}
 			</main>
 		);

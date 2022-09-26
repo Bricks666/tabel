@@ -1,5 +1,5 @@
 export const ROUTES = {
-	main: '/:id',
+	main: ':id',
 	notFound: '*',
 };
 

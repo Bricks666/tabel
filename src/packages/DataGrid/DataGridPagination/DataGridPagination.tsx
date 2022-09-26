@@ -14,7 +14,7 @@ export const DataGridPagination: React.FC<DataGridPaginationProps> = React.memo(
 		const { className, } = props;
 		const { page, onPageCount, onPageChange, count, } =			React.useContext(DataGridContext);
 		const startElementNumber = (page - 1) * onPageCount + 1;
-		const endElementNumber = page * onPageCount;
+		const endElementNumber = Math.min(page * onPageCount, count);
 
 		const disableBackButton = page === 1;
 		const disableForwardButton = page === Math.ceil(count / onPageCount);

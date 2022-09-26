@@ -4,5 +4,7 @@ export interface Pagination {
 }
 
 export type Query = {
-	readonly [key: string]: string | number | undefined | null;
+	readonly [key: string]: QueryValue;
 };
+
+export type QueryValue = string | number | undefined | null;

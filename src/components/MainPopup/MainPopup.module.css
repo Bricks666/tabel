@@ -1,0 +1,11 @@
+.mainPopup {
+	display: grid;
+
+	padding: 60px;
+
+	background-color: var(--key-invert-color);
+
+	box-shadow: 10px 10px 20px var(--third-color-50);
+
+	border-radius: 4px;
+}

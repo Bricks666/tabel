@@ -20,4 +20,4 @@ export type RowAllowedTypes = number | string | null;
 
 export type OnPageChange = (page: number) => unknown;
 
-export type OnDelete = (rowId: number) => unknown;
+export type RowClickHandler = (rowId: number) => unknown;
