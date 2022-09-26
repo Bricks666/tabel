@@ -11,16 +11,24 @@
 
 	cursor: pointer;
 
-	transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+	transition: background-color 200ms ease-in-out, color 200ms ease-in-out,
+		box-shadow 200ms ease-in-out;
+
+	border-radius: 6px;
 }
 
 .button:disabled {
 	cursor: default;
 }
 
-.button:not(:disabled):hover,
-.button:not(:disabled):focus-visible {
+.color:not(:disabled):hover,
+.color:not(:disabled):focus-visible {
 	background-color: var(--primary-color-100);
 
 	color: var(--key-invert-color);
+}
+
+.mono:not(:disabled):hover,
+.mono:not(:disabled):focus-visible {
+	box-shadow: 0 0 15px var(--third-color-50);
 }

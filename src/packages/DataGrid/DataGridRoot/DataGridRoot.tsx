@@ -12,7 +12,7 @@ export interface DataGridRootProps extends CommonProps {}
 
 export const DataGridRoot: React.FC<DataGridRootProps> = React.memo(
 	function DataGridRoot(props) {
-		const { className } = props;
+		const { className, } = props;
 		return (
 			<div className={cn(styles.dataGridRoot, className)}>
 				<DataGridToolbar />

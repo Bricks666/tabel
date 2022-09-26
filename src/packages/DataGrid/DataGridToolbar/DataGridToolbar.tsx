@@ -8,7 +8,11 @@ export interface DataGridToolbarProps extends CommonProps {}
 
 export const DataGridToolbar: React.FC<DataGridToolbarProps> = React.memo(
 	function DataGridToolbar(props) {
-		const { className } = props;
-		return null;
+		const { className, } = props;
+		return (
+			<div className={cn(styles.dataGridToolbar, className)} role='toolbar'>
+				TollBar
+			</div>
+		);
 	}
 );

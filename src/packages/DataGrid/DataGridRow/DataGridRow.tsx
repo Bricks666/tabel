@@ -12,16 +12,18 @@ export interface DataGridRowProps extends CommonProps {
 
 export const DataGridRow: React.FC<DataGridRowProps> = React.memo(
 	function DataGridRow(props) {
-		const { className, elements } = props;
-		const { columns } = React.useContext(DataGridContext);
+		const { className, elements, } = props;
+		const { columns, } = React.useContext(DataGridContext);
+
+		const gridTemplateColumns: string = columns
+			.map(({ width, }) => `${width}px`)
+			.join(' ');
 
 		return (
 			<div
 				className={cn(styles.row, className)}
 				style={{
-					gridTemplateColumns: columns
-						.map(({ width }) => `${width}px`)
-						.join(' '),
+					gridTemplateColumns,
 				}}
 			>
 				{elements.map((element) => (

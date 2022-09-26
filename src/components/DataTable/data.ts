@@ -33,5 +33,5 @@ export const columns: Column[] = [
 		key: 'date',
 		label: 'Date',
 		width: 300,
-	},
+	}
 ];

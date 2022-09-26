@@ -12,7 +12,7 @@ export type DataTableProps = CommonProps;
 
 export const DataTable: React.FC<DataTableProps> = React.memo(
 	function DataTable(props) {
-		const { className } = props;
+		const { className, } = props;
 		const {
 			data = {
 				data: [],
@@ -21,7 +21,7 @@ export const DataTable: React.FC<DataTableProps> = React.memo(
 			},
 		} = useData();
 		const pagination = useDataPagination();
-		const { data: rows, onPageCount, totalCount } = data;
+		const { data: rows, onPageCount, totalCount, } = data;
 
 		return (
 			<DataGrid

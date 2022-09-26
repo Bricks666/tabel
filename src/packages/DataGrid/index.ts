@@ -4,7 +4,7 @@ export {
 	DataGridContext,
 	type DataGridContextProps,
 	DataGridContextProvider,
-	type DataGridContextValue,
+	type DataGridContextValue
 } from './DataGridContext';
 export { DataGridFooter, type DataGridFooterProps } from './DataGridFooter';
 export { DataGridHead, type DataGridHeadProps } from './DataGridHead';

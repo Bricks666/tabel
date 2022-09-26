@@ -1,2 +1,7 @@
 .dataGridFooter {
+	padding: 5px;
+}
+
+.pagination {
+	margin-left: auto;
 }

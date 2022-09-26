@@ -10,17 +10,17 @@ export interface DataGridHeadProps extends CommonProps {}
 
 export const DataGridHead: React.FC<DataGridHeadProps> = React.memo(
 	function DataGridHead(props) {
-		const { className } = props;
-		const { columns } = React.useContext(DataGridContext);
+		const { className, } = props;
+		const { columns, } = React.useContext(DataGridContext);
 		const titles = React.useMemo<string[]>(
-			() => columns.map(({ label }) => label),
+			() => columns.map(({ label, }) => label),
 			[columns]
 		);
 
 		return (
-			<div className={cn(styles.head, className)}>
+			<header className={cn(styles.head, className)}>
 				<DataGridRow className={styles.row} elements={titles} />
-			</div>
+			</header>
 		);
 	}
 );

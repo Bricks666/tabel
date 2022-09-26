@@ -10,8 +10,19 @@
 	--primary-color-20: #aabcd3;
 	--primary-color-10: #bac6d6;
 
+	--third-color-100: #696666;
+	--third-color-90: #797676;
+	--third-color-80: #858282;
+	--third-color-70: #949292;
+	--third-color-60: #a3a2a2;
+	--third-color-50: #b1b0b0;
+	--third-color-40: #b8b6b6;
+	--third-color-30: #cecbcb;
+	--third-color-20: #ddd9d9;
+	--third-color-10: #e6e0e0;
+
+
 	--secondary-color: #e7972f;
-	--third-color: #696666;
 	--key-color: #1d1c1c;
 	--key-invert-color: #ffffff;
 }

@@ -1,5 +1,5 @@
 declare const styles: {
-  readonly "table": string;
+  readonly "pagination": string;
 };
 export = styles;
 

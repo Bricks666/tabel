@@ -2,7 +2,7 @@ import * as React from 'react';
 import { CommonProps } from '@/interfaces/common';
 import {
 	DataGridContextProps,
-	DataGridContextProvider,
+	DataGridContextProvider
 } from '../DataGridContext';
 import { DataGridRoot } from '../DataGridRoot';
 
