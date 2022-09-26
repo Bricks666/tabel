@@ -58,6 +58,7 @@ export const FilterForm: React.FC<FilterFormProps> = React.memo(
 				onSubmit={onSubmit}
 				onReset={onReset}
 			>
+				<legend className={styles.legend}>Фильтрация</legend>
 				<Field {...value} label='Значение' />
 				<Select {...type} label='Способ'>
 					<option value={-1}>Не выбран</option>
@@ -78,9 +79,7 @@ export const FilterForm: React.FC<FilterFormProps> = React.memo(
 				<Button type='submit' disabled={disableButton}>
 					Фильтровать
 				</Button>
-				<Button type='reset'>
-					Сбросить фильтры
-				</Button>
+				<Button type='reset'>Сбросить фильтры</Button>
 			</form>
 		);
 	}

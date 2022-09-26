@@ -14,10 +14,16 @@
 
 	background-color: var(--key-invert-color);
 
-	transition: box-shadow 250ms ease-in-out;
+	border: 1px solid var(--third-color-80);
+
+	transition: box-shadow 250ms ease-in-out, border 250ms ease-in-out;
+
+	border-radius: 6px;
 }
 
 .input:focus,
 .input:hover {
+	border: 1px solid var(--primary-color-100);
+
 	box-shadow: 0 0 15px var(--primary-color-70);
 }

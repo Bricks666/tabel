@@ -26,3 +26,16 @@ export const getDataApi = async (
 export const deleteDataApi = async (id: number): Promise<void> => {
 	await instance.delete(`/data/${id}`);
 };
+
+export interface CreateDataParams {
+	readonly name: string;
+	readonly count: number;
+	readonly distance: number;
+	readonly date: string;
+}
+
+export const createDataApi = async (
+	params: CreateDataParams
+): Promise<void> => {
+	await instance.post('/data', params);
+};

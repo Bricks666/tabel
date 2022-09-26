@@ -3,12 +3,12 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@faker-js/faker": "^7.5.0",
 		"axios": "^0.27.2",
 		"classnames": "^2.3.2",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"react-router-dom": "^6.4.1",
-		"@faker-js/faker": "^7.5.0"
+		"react-router-dom": "^6.4.1"
 	},
 	"devDependencies": {
 		"@types/node": "^16.11.59",
@@ -21,6 +21,7 @@
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-jsx-a11y": "^6.6.1",
 		"generate-react-cli": "^7.3.0",
+		"husky": "^8.0.1",
 		"react-app-rewired": "^2.2.1",
 		"react-scripts": "5.0.1",
 		"tsconfig-paths-webpack-plugin": "^4.0.0",
@@ -36,7 +37,8 @@
 		"gen:component": "generate-react component",
 		"gen:page": "generate-react component --type=page",
 		"lint": "eslint --ext .tsx,.ts src",
-		"lint:fix": "eslint --ext .tsx,.ts src --fix"
+		"lint:fix": "eslint --ext .tsx,.ts src --fix",
+		"prepare": "husky install"
 	},
 	"eslintConfig": {
 		"extends": [

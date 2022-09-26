@@ -1,11 +1,9 @@
-.filterForm {
+.createDataForm {
 	display: grid;
 	grid-template-columns: 1fr repeat(4, max-content);
-	align-items: center;
 	column-gap: 10px;
 	row-gap: 5px;
-
-	padding: 10px;
+  align-items: end;
 }
 
 .legend {

@@ -11,21 +11,21 @@ export interface UseFieldResult<T, Element extends AllowedElements> {
 }
 
 const useField = <T, Element extends AllowedElements>(
-	defaultValue: T
+	initialState: T
 ): UseFieldResult<T, Element> => {
-	const [value, setValue] = useState(defaultValue);
+	const [value, setValue] = useState(initialState);
 	const onChange = useCallback<ChangeEventHandler<Element>>((evt) => {
 		setValue(evt.target.value as T);
 	}, []);
 	const reset = useCallback(() => {
-		setValue(defaultValue);
+		setValue(initialState);
 	}, []);
 
 	return {
 		onChange,
 		value,
 		reset,
-		isDirty: value !== defaultValue,
+		isDirty: value !== initialState,
 	};
 };
 
