@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useCallback } from 'react';
 import { CacheHandlerContext, QueryContext } from './context';
 import { Fetcher, KeyType, QueryCache } from './types';
 
@@ -12,38 +12,45 @@ export interface UseQueryResult<T> {
 const requestInFly = new Set<string>();
 
 const useQuery = <T>(
-	keys: KeyType[],
+	keys: Array<KeyType | undefined>,
 	fetcher: Fetcher<T>
 ): UseQueryResult<T> => {
 	const key = JSON.stringify(keys);
 	const modifyCache = useContext(CacheHandlerContext);
 	const cache = useContext(QueryContext);
 	const queryCache: QueryCache<T> = (cache[key] as QueryCache<T>) || {
-		status: 'pending',
+		status: 'uninitialized',
 		data: undefined,
 	};
 
-	useEffect(() => {
-		const request = async () => {
-			if (requestInFly.has(key)) {
-				return;
-			}
+	const isUninitialized = queryCache.status === 'uninitialized';
 
-			requestInFly.add(key);
-			try {
-				modifyCache(key, {
-					status: 'pending',
-				});
-				const data = (await fetcher()) as T;
-				modifyCache(key, { data, status: 'fulfilled', });
-			} catch {
-				modifyCache(key, {
-					status: 'reject',
-				});
-			}
-		};
-		request();
+	const request = useCallback(async () => {
+		if (requestInFly.has(key)) {
+			return;
+		}
+
+		requestInFly.add(key);
+		try {
+			modifyCache(key, {
+				status: 'pending',
+			});
+			const data = (await fetcher()) as T;
+			modifyCache(key, { data, status: 'fulfilled', });
+		} catch {
+			modifyCache(key, {
+				status: 'reject',
+			});
+		} finally {
+			requestInFly.delete(key);
+		}
 	}, [fetcher, key]);
+
+	useEffect(() => {
+		if (isUninitialized) {
+			request();
+		}
+	}, [isUninitialized, request]);
 
 	return {
 		isError: queryCache.status === 'reject',

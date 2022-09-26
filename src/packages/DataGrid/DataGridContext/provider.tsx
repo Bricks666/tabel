@@ -16,6 +16,7 @@ export const DataGridContextProvider: React.FC<
 		onPageChange,
 		page,
 		rows,
+		onDelete,
 	} = props;
 
 	const value = React.useMemo<DataGridContextValue>(
@@ -27,8 +28,18 @@ export const DataGridContextProvider: React.FC<
 			onPageChange,
 			page,
 			rows,
+			onDelete,
 		}),
-		[columns, count, onFilterSubmit, onPageCount, onPageChange, page, rows]
+		[
+			columns,
+			count,
+			onFilterSubmit,
+			onPageCount,
+			onPageChange,
+			page,
+			rows,
+			onDelete
+		]
 	);
 
 	return (

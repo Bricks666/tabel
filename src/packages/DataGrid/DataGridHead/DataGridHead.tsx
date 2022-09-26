@@ -19,7 +19,12 @@ export const DataGridHead: React.FC<DataGridHeadProps> = React.memo(
 
 		return (
 			<header className={cn(styles.head, className)}>
-				<DataGridRow className={styles.row} elements={titles} />
+				<DataGridRow
+					className={styles.row}
+					elements={titles}
+					columns={columns}
+					rowId={0}
+				/>
 			</header>
 		);
 	}

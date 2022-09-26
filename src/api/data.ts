@@ -1,5 +1,6 @@
-import { Pagination } from '@/interfaces/api';
+import { Pagination, Query } from '@/interfaces/api';
 import { DataModel } from '@/models/Row';
+import prepareQuery from '@/utils/prepareQuery';
 import { instance } from './core';
 
 export interface GetDataApiResponse {
@@ -17,12 +18,11 @@ export interface GetDataApiParams extends Pagination {
 export const getDataApi = async (
 	params: GetDataApiParams
 ): Promise<GetDataApiResponse> => {
-	const query = new URLSearchParams({});
-	Object.entries(params).forEach(([key, value]) => {
-		if (typeof value !== 'undefined' && value !== null) {
-			query.set(key, value);
-		}
-	});
+	const query = prepareQuery(params as Query);
 	const result = await instance.get<GetDataApiResponse>(`/data?${query}`);
 	return result.data;
+};
+
+export const deleteDataApi = async (id: number): Promise<void> => {
+	await instance.delete(`/data/${id}`);
 };

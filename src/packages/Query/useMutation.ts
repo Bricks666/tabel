@@ -16,20 +16,20 @@ const useMutation = <P extends Array<unknown>>(
 ): UseMutationResult<P> => {
 	const cache = useContext(QueryContext);
 	const modifyCache = useContext(CacheHandlerContext);
-
 	const mutate = useCallback(
 		async (...args: P) => {
 			try {
 				await fetcher(...args);
-				const invalidKeys = Object.keys(cache).filter(
-					(cacheKey) => cacheKey !== key
-				);
-				invalidKeys.forEach((invalidKey) => modifyCache(invalidKey, undefined));
-			} catch {
-				console.log('error');
+				const invalidKeys = Object.keys(cache).filter((cacheKey) => {
+					return cacheKey.includes(String(key));
+				});
+				invalidKeys.forEach((invalidKey) =>
+					modifyCache(invalidKey, { status: 'uninitialized', }));
+			} catch (error) {
+				console.log('error', error);
 			}
 		},
-		[key, fetcher]
+		[key, cache]
 	);
 
 	return {

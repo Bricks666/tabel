@@ -12,6 +12,10 @@
 	text-overflow: ellipsis;
 }
 
+.actions {
+	justify-self: end;
+}
+
 @media (max-width: 576px) {
 	.cell {
 		padding: 10px;

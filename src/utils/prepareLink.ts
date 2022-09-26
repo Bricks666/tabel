@@ -1,4 +1,5 @@
 import { Location } from 'react-router-dom';
+import prepareQuery from './prepareQuery';
 
 export interface PrepareLinkParams {
 	readonly path?: string;
@@ -11,12 +12,7 @@ const prepareLink = (location: Location, params: PrepareLinkParams): string => {
 	const { path, keepOldQuery = false, query = {}, } = params;
 	const to = path ?? pathname;
 
-	const newQuery = new URLSearchParams(keepOldQuery ? search : {});
-	Object.entries(query).forEach(([key, value]) => {
-		if (typeof value !== 'undefined' && value !== null) {
-			newQuery.set(key, value.toString());
-		}
-	});
+	const newQuery = prepareQuery(query, keepOldQuery ? search : '');
 	return `${to}?${newQuery}#${hash}`;
 };
 
